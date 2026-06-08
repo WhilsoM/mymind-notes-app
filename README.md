@@ -100,13 +100,12 @@ Notes are plain `.md` files. That's the database. iCloud, Dropbox, and Git sync 
 
 Before running the app, make sure you have:
 
-### Node.js
+### Bun
 ```bash
-node -v   # v18 or higher
-npm -v    # v9 or higher
+bun -v   # v1.1 or higher
 ```
 
-Download: https://nodejs.org
+Install: https://bun.sh
 
 ### Rust + Cargo
 ```bash
@@ -136,12 +135,6 @@ If not installed:
 xcode-select --install
 ```
 
-### pnpm
-```bash
-npm install -g pnpm
-pnpm -v
-```
-
 ---
 
 ## Environment check
@@ -149,8 +142,7 @@ pnpm -v
 Run this to verify your environment:
 
 ```bash
-node -v
-npm -v
+bun -v
 rustc --version
 cargo --version
 xcode-select -p
@@ -158,8 +150,7 @@ xcode-select -p
 
 Expected output:
 ```
-v22.x.x
-10.x.x
+1.x.x
 rustc 1.77.x
 cargo 1.77.x
 /Library/Developer/CommandLineTools
@@ -171,10 +162,10 @@ cargo 1.77.x
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Start dev mode (hot reload)
-pnpm tauri dev
+bun run tauri dev
 ```
 
 > **Note:** The first run downloads and compiles Rust dependencies. This may take 2–5 minutes.
@@ -184,7 +175,7 @@ pnpm tauri dev
 ## Building the app
 
 ```bash
-pnpm tauri build
+bun run tauri build
 ```
 
 Output will be in `src-tauri/target/release/bundle/`.
@@ -195,7 +186,7 @@ Output will be in `src-tauri/target/release/bundle/`.
 
 ```bash
 # TypeScript + Svelte check
-pnpm check
+bun run check
 
 # Rust check (no full compile)
 cd src-tauri && cargo check
