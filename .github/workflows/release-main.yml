@@ -59,11 +59,9 @@ jobs:
             libssl-dev
 
       # ── Node / pnpm ──────────────────────────────────────────────────────────
-      # lockfileVersion 9.0 → pnpm 9.x (pnpm 11+ requires Node 22.13+)
+      # pnpm version comes from package.json "packageManager" field (pnpm@9.15.9)
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
 
       - name: Setup Node.js 20
         uses: actions/setup-node@v4
