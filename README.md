@@ -219,6 +219,37 @@ cd src-tauri && cargo check
 
 ---
 
+## Releases / CI/CD
+
+Releases are built automatically by GitHub Actions on every push to `main`.
+
+### How it works
+
+| Event | Action |
+|---|---|
+| Push to `main` | Build for macOS (ARM + Intel), Windows, Linux → publish to GitHub Releases |
+| `workflow_dispatch` | Same, triggered manually from the Actions tab |
+
+### Downloading a build
+
+1. Go to the **[Releases](https://github.com/WhilsoM/mymind-notes-app/releases)** page on GitHub.
+2. Find the latest pre-release tagged `main-<build-number>`.
+3. Download the artifact for your platform:
+   - **macOS** → `.dmg`
+   - **Windows** → `.exe` or `.msi`
+   - **Linux** → `.AppImage` or `.deb`
+
+### Important — builds are unsigned
+
+Current builds are **not code-signed or notarized**.
+
+- **macOS**: If you see *"can't be opened because Apple cannot check it for malicious software"*, right-click the app in Finder and choose **Open**, then confirm.
+- **Windows**: SmartScreen may show a warning — click **More info → Run anyway**.
+
+Signing and notarization will be added in a future release.
+
+---
+
 ## License
 
 MIT

@@ -1,0 +1,41 @@
+# Agent files — не коммитить
+codex.md
+.cursorrules
+
+# Node
+node_modules/
+dist/
+.svelte-kit/
+
+# Tauri / Rust
+src-tauri/target/
+src-tauri/WixTools/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Xcode
+*.xcuserstate
+DerivedData/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+dist-ssr/
+*.local

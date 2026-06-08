@@ -1,0 +1,167 @@
+/* ─── Reset ─────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Design tokens — Light theme ───────────────── */
+:root {
+  /* Backgrounds */
+  --bg:                  #f7f4ef;
+  --surface:             rgba(255, 255, 255, 0.72);
+  --surface-strong:      rgba(255, 255, 255, 0.94);
+  --surface-hover:       rgba(255, 255, 255, 0.88);
+  --surface-active:      rgba(139, 108, 255, 0.10);
+
+  /* Text */
+  --text:                #181716;
+  --text-muted:          #77716a;
+  --text-faint:          #b0a89f;
+
+  /* Borders */
+  --border:              rgba(24, 23, 22, 0.10);
+  --border-strong:       rgba(24, 23, 22, 0.18);
+
+  /* Accent (overridable via settings) */
+  --accent:              #8b6cff;
+  --accent-soft:         rgba(139, 108, 255, 0.14);
+  --accent-text:         #6347e0;
+
+  /* Semantic */
+  --danger:              #e05252;
+  --danger-soft:         rgba(224, 82, 82, 0.12);
+  --success:             #3baf6e;
+
+  /* Radius */
+  --radius-xs:           4px;
+  --radius-sm:           8px;
+  --radius-md:           14px;
+  --radius-lg:           20px;
+  --radius-xl:           28px;
+
+  /* Spacing scale */
+  --space-1:             4px;
+  --space-2:             8px;
+  --space-3:             12px;
+  --space-4:             16px;
+  --space-5:             20px;
+  --space-6:             24px;
+  --space-8:             32px;
+  --space-10:            40px;
+
+  /* Layout */
+  --sidebar-width:       280px;
+  --topbar-height:       48px;
+
+  /* Typography */
+  --font-sans:           -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
+  --font-mono:           "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  --font-size-xs:        11px;
+  --font-size-sm:        13px;
+  --font-size-base:      14px;
+  --font-size-md:        15px;
+  --font-size-lg:        17px;
+  --font-size-xl:        20px;
+
+  /* Motion */
+  --transition:          150ms ease;
+  --transition-slow:     220ms ease;
+
+  /* Shadows — very subtle */
+  --shadow-sm:           0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md:           0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg:           0 8px 32px rgba(0, 0, 0, 0.10);
+}
+
+/* ─── Dark theme ─────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:                  #141312;
+  --surface:             #1c1a18;
+  --surface-strong:      #222020;
+  --surface-hover:       #1f1d1b;
+  --surface-active:      #2a2540;
+
+  --text:                #e8e4de;
+  --text-muted:          #8a847d;
+  --text-faint:          #5a554f;
+
+  --border:              #2a2826;
+  --border-strong:       #353230;
+
+  --accent-soft:         #2e2845;
+  --accent-text:         #a98cff;
+
+  --danger-soft:         #2e1c1c;
+
+  --shadow-sm:           0 1px 3px rgba(0, 0, 0, 0.40);
+  --shadow-md:           0 4px 16px rgba(0, 0, 0, 0.50);
+  --shadow-lg:           0 8px 32px rgba(0, 0, 0, 0.60);
+}
+
+/* ─── Base ───────────────────────────────────────── */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Text nodes inside editor should be selectable */
+textarea, input, [contenteditable] {
+  user-select: text;
+}
+
+/* Tauri drag region: interactive children (buttons, links) must stay clickable */
+[data-tauri-drag-region] button,
+[data-tauri-drag-region] a,
+[data-tauri-drag-region] input {
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+}
+
+/* ─── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}
+
+/* ─── Focus visible ──────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* ─── Selection ──────────────────────────────────── */
+::selection {
+  background: var(--accent-soft);
+  color: var(--text);
+}
